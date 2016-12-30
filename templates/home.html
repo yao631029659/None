@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block body %}
+        <div class="row">
+            <form method="post" action="{{ url_for('postdata')}}">
+                    {{ form.hidden_tag() }}
+                    <div class="col-lg-3">
+                        {{ form.name.label }}
+                        {{ form.name }}
+                    </div>
+                    <div class="col-lg-3">
+
+                    </div>
+                    <div class="col-lg-3">
+
+                    </div>
+                    <div class="col-lg-3">
+                        <input class="btn-primary btn" type="submit" value="search">
+                    </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+               {{ table }}
+            </div>
+
+{% endblock %}
