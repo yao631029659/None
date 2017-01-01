@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block body %}
+    {#    建立表单#}
+    <h1>新增数据</h1>
+    <form action="{{ url_for("addband") }} " method="post" role="form" class="form-horizontal">
+{#        这句话写在form的下面 要不然传输方式一直为get#}
+        {{ addbanddata.hidden_tag() }}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            {{ addbanddata.name.label(class_="control-label") }}{{ addbanddata.name(class_="form-control")}}
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            {{ addbanddata.description.label(class_="control-label") }}{{ addbanddata.description(class_="form-control") }}
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            {{ addbanddata.web.label(class_="control-label") }}{{ addbanddata.web(class_="form-control") }}
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            {{ addbanddata.band.label(class_="control-label") }}{{ addbanddata.band(class_="form-control") }}
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            {{ addbanddata.add_time.label(class_="control-label")}}{{ addbanddata.add_time(class_="form-control") }}
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            {{ addbanddata.add_person.label(class_="control-label")}}{{ addbanddata.add_person(class_="form-control") }}
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+        <br class="row">
+            <br></br>
+            <div class="col-md-offset-10">
+                <i class="icon-edit"></i> {{ addbanddata.btnsave }} {{ addbanddata.btnquit }}
+            </div>
+        </div>
+    </form>
+    {#    传输值#}
+{% endblock %}

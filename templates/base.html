@@ -1,32 +1,30 @@
 {% macro formfunc(endpoint,data) %}
-{#    endpoint调用的控制器 data是数据查询字段 kwars是表头#}
-    <form action="{{ url_for(endpoint) }}">
-        <table class="table table-hover table-border">
-            <thead>
-                    <td>ID</td>
-                    <td>品牌名</td>
-                    <td>描述</td>
-                    <td>官网</td>
-                    <td>是否牌子</td>
-                    <td>添加时间</td>
-                    <td>操作人员</td>
-            </thead>
-            {% for row in data %}
-                <tr>
-                    <td><input type="checkbox" name="vehicle" value="{{ row.id }}" /></td>
-                    <td>{{ row.id }}</td>
-                    <td>{{ row.name }}</td>
-                    <td>{{ row.description }}</td>
-                    <td>{{ row.web }}</td>
-                    <td>{{ row.band }}</td>
-                    <td>{{ row.add_time }}</td>
-                    <td>{{ row.add_person }}</td>
-                </tr>
-
-            {% endfor %}
-
-        </table>
-    </form>
+    {#    这个是表格函数#}
+    {#    endpoint调用的控制器 data是数据查询字段 kwars是表头#}
+    <table class="table table-hover table-border">
+        <thead>
+        <td> </td>
+        <td>ID</td>
+        <td>品牌名</td>
+        <td>描述</td>
+        <td>官网</td>
+        <td>是否牌子</td>
+        <td>添加时间</td>
+        <td>操作人员</td>
+        </thead>
+        {% for row in data %}
+            <tr>
+                <td><input type="checkbox" name="to_operate" value="{{ row.id }}"/></td>
+                <td>{{ row.id }}</td>
+                <td>{{ row.name }}</td>
+                <td>{{ row.description }}</td>
+                <td>{{ row.web }}</td>
+                <td>{{ row.band }}</td>
+                <td>{{ row.add_time }}</td>
+                <td>{{ row.add_person }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endmacro %}
 
 <!DOCTYPE html>
@@ -34,6 +32,7 @@
 <head>
     <title></title>
     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap-theme.min.css"></script>
     <style type="text/css" media="screen">
         .side-nav-item {
@@ -99,12 +98,12 @@
                         <div class="item-body">
                             <ul class="list-unstyled">
                                 <li class="item-second">
-                                    <a href="">
+                                    <a href="{{ url_for("addband") }}">
                                         添加品牌
                                     </a>
                                 </li>
                                 <li class="item-second">
-                                    <a href="">
+                                    <a href="{{ url_for("postdata") }}">
                                         查询品牌
                                     </a>
                                 </li>
