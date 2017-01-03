@@ -1,10 +1,10 @@
-{% extends "base.html" %}
+{% extends "checkband/base.html" %}
 {#这个是右边的内容#}
 {% block body %}
     {#        这个是查询窗口#}
     <div class="row">
         <div class="col-md-12">
-            <form method="post" action="{{ url_for('postdata')}}">
+            <form method="post" action="{{ url_for('.postdata')}}">
                 {{ formsearch.hidden_tag() }}
                 <div class="row">
                     {{ formsearch.btnadd }}

@@ -1,8 +1,8 @@
-{% extends "base.html" %}
+{% extends "checkband/base.html" %}
 {% block body %}
     {#    建立表单#}
     <h1>新增数据</h1>
-    <form action="{{ url_for("addband") }} " method="post" role="form" class="form-horizontal">
+    <form action="{{ url_for(".addband") }} " method="post" role="form" class="form-horizontal">
 {#        这句话写在form的下面 要不然传输方式一直为get#}
         {{ addbanddata.hidden_tag() }}
         <div class="row">
