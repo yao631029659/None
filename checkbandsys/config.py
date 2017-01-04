@@ -1,4 +1,5 @@
 #这个是配置文件目录 等下main要调用里面的部分信息
+import os
 class Config(object):
     SECRET_KEY = '736670cb10a600b695a55839ca3a5aa54a7d7356cdef815d2ad6e19a2031182b'
 
@@ -10,3 +11,5 @@ class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///database.db'
     # 写了这句可以看到sql语句
     SQLALCHEMY_ECHO=True
+    UPLOADED_PHOTOS_DEST=r'D:\uploadfile\static\img'
+    MAX_CONTENT_LENGTH = 16 * 1024 * 1024

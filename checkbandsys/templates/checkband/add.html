@@ -2,7 +2,7 @@
 {% block body %}
     {#    建立表单#}
     <h1>新增数据</h1>
-    <form action="{{ url_for(".addband") }} " method="post" role="form" class="form-horizontal">
+    <form action="{{ url_for(".addband") }} " method="post" role="form" class="form-horizontal" enctype="">
 {#        这句话写在form的下面 要不然传输方式一直为get#}
         {{ addbanddata.hidden_tag() }}
         <div class="row">
@@ -49,7 +49,12 @@
                 </div>
             </div>
         </div>
-        <br class="row">
+{#        <div class="row">#}
+{#            <div class="col-md-4 col-md-offset-9">#}
+{#                {{ addbanddata.photo }}#}
+{#            </div>#}
+{#        </div>#}
+        <div class="row">
             <br></br>
             <div class="col-md-offset-10">
                 <i class="icon-edit"></i> {{ addbanddata.btnsave }} {{ addbanddata.btnquit }}

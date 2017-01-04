@@ -1,6 +1,7 @@
 from flask_script import Manager,Server
 
-from checkbandsys.main import app,db,FamousProduct
+from checkbandsys.models import db,FamousProduct
+from checkbandsys.init import app
 
 manager=Manager(app)
 manager.add_command('server',Server())

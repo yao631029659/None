@@ -1,9 +1,10 @@
 from flask_wtf import Form
-from wtforms import StringField, SelectField,SubmitField,DateTimeField
+from flask_wtf.file import FileField, FileRequired, FileAllowed
+from wtforms import StringField, SelectField,SubmitField,DateTimeField,FileField
 from wtforms.validators import DataRequired
 from datetime import datetime
-
-
+# from checkbandsys.init import photos
+# 实例化
 
 # wtf 验证类
 class CheckForm(Form):
@@ -11,13 +12,14 @@ class CheckForm(Form):
         'name',
         validators=[DataRequired()]
     )
-    search=SubmitField('查询',render_kw={'class':'btn btn-primary'})
+    search=SubmitField('search',render_kw={'class':'btn btn-primary'})
     btnadd = SubmitField('add', render_kw={'class': 'btn btn-primary'})
     btndel = SubmitField('del',render_kw={'class':'btn btn-primary'})
 # 用于crud跳转
 
 
 # addhtml用的数据
+
 class AddBand(Form):
     name=StringField(
         '品牌名',
@@ -55,6 +57,8 @@ class AddBand(Form):
         'quit',
         render_kw={'class': 'btn btn-primary'}
     )
+
+
 
 
 class FormSave(Form):
