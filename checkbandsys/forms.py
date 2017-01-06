@@ -3,7 +3,8 @@ from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms import StringField, SelectField,SubmitField,DateTimeField,FileField
 from wtforms.validators import DataRequired
 from datetime import datetime
-# from checkbandsys.init import photos
+from . import img
+# from  . import photos
 # 实例化
 
 # wtf 验证类
@@ -57,6 +58,8 @@ class AddBand(Form):
         'quit',
         render_kw={'class': 'btn btn-primary'}
     )
+    photo = FileField(u'图片上传')
+    # photo=FileField(u'图片上传',validators=[FileAllowed(photos,u'只能上传图片！'),FileRequired(u'文件未选择')])
 
 
 

@@ -2,6 +2,9 @@ from flask import Flask,request,redirect,url_for,flash,Blueprint,render_template
 from datetime import datetime
 from checkbandsys.models import FamousProduct,db
 from checkbandsys.forms import CheckForm,AddBand
+from checkbandsys import img
+from checkbandsys import test
+print(test)
 from werkzeug.utils import secure_filename
 checkband_blueprint=Blueprint(
     'checkband',
@@ -42,8 +45,6 @@ def postdata():
     elif request.form.get('btnedit',None) == "edit":
         print('修改')
 
-
-
     endpoint='checkband.postdata'
     return render_template(
         'home.html',
@@ -53,6 +54,9 @@ def postdata():
         formsearch=formsearch,
 
     )
+
+
+
 # 新增数据控制器
 @checkband_blueprint.route('/addband',methods=('post','get'))
 def addband():
@@ -71,8 +75,8 @@ def addband():
         db.session.add(addnew)
         # secure_filename仅返回ASCII字符。所以， 非ASCII（比如汉字）会被过滤掉，空格会被替换为下划线。
         # print (type(photos))
-        # filename = photos.save(addbanddata.photo.data)
-        # file_url = photos.url(filename)
+        filename = photos.save(addbanddata.photo.data)
+        file_url = photos.url(filename)
         try:
             db.session.commit()
         except:
